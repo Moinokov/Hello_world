@@ -1,10 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-func intToWord(n int) string {
+func numsToWord(n int) string {
 	switch n {
 	case 1:
 		return "one"
@@ -46,25 +44,45 @@ func intToWord(n int) string {
 		return "nineteen"
 	case 20:
 		return "twenty"
+	case 21:
+		return "twenty-one"
+	case 22:
+		return "twenty-two"
+	case 23:
+		return "twenty-three"
+	case 24:
+		return "twenty-four"
+	case 25:
+		return "twenty-five"
+	case 26:
+		return "twenty-six"
+	case 27:
+		return "twenty-seven"
+	case 28:
+		return "twenty-eight"
+	case 29:
+		return "twenty-nine"
+	case 30:
+		return "thirty"
 	default:
-		return "big number"
+		return "too_little_number"
 	}
 }
 
-func myCalculation(a int, b int, op string) string {
+func Calculation(a int, b int, op string) string {
 	var result int
 	switch op {
-	case "+":
-		result = a + b
-	case "*":
-		result = a * b
+	case "-":
+		result = a - b
+	case "/":
+		result = a / b
 	default:
 		panic("неподдерживаемая операция: " + op)
 	}
 
-	aWord := intToWord(a)
-	bWord := intToWord(b)
-	resWord := intToWord(result)
+	aWord := numsToWord(a)
+	bWord := numsToWord(b)
+	resWord := numsToWord(result)
 
 	return fmt.Sprintf("%s %s %s = %s", aWord, op, bWord, resWord)
 }
@@ -72,8 +90,8 @@ func myCalculation(a int, b int, op string) string {
 func main() {
 	const operand = 3
 
-	for i := 1; i <= 20; i++ {
-		fmt.Println(myCalculation(i, operand, "+"))
-		fmt.Println(myCalculation(i, operand, "*"))
+	for i := 1; i <= 30; i++ {
+		fmt.Println(Calculation(i, operand, "-"))
+		fmt.Println(Calculation(i, operand, "/"))
 	}
 }
